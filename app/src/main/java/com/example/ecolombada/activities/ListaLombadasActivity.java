@@ -24,9 +24,7 @@ public class ListaLombadasActivity extends AppCompatActivity {
     private RecyclerView recyclerViewLombadas;
     private LombadaAdapter lombadaAdapter;
     private List<Lombada> listaLombadas;
-
     private FloatingActionButton fabAdicionarLombada;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +34,7 @@ public class ListaLombadasActivity extends AppCompatActivity {
         buttonVoltarListaLombadas = findViewById(R.id.buttonVoltarListaLombadas);
         editTextBuscarLombada = findViewById(R.id.editTextBuscarLombada);
         recyclerViewLombadas = findViewById(R.id.recyclerViewLombadas);
+        fabAdicionarLombada = findViewById(R.id.fabAdicionarLombada);
 
         listaLombadas = new ArrayList<>();
         listaLombadas.add(new Lombada("ABC_SP", "Rua Francisco Henrique da Rosa, 333 - Sorocaba, SP - Brasil"));
@@ -49,12 +48,10 @@ public class ListaLombadasActivity extends AppCompatActivity {
         recyclerViewLombadas.setAdapter(lombadaAdapter);
 
         buttonVoltarListaLombadas.setOnClickListener(v -> finish());
-        fabAdicionarLombada = findViewById(R.id.fabAdicionarLombada);
 
         fabAdicionarLombada.setOnClickListener(v -> {
             Intent intent = new Intent(ListaLombadasActivity.this, CadastroLombadaActivity.class);
             startActivity(intent);
         });
-
     }
 }
