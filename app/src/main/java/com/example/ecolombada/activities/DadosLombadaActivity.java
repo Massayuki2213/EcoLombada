@@ -22,9 +22,12 @@ public class DadosLombadaActivity extends AppCompatActivity {
         textTituloLombada = findViewById(R.id.textTituloLombada);
 
         String nome = getIntent().getStringExtra("nome_lombada");
+        String endereco = getIntent().getStringExtra("endereco_lombada");
+
         if (nome != null) {
             textTituloLombada.setText(nome);
         }
+
 
         buttonVoltarDados.setOnClickListener(v -> finish());
 

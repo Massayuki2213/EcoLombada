@@ -1,5 +1,6 @@
 package com.example.ecolombada.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ecolombada.R;
 import com.example.ecolombada.adapters.LombadaAdapter;
 import com.example.ecolombada.models.Lombada;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,9 @@ public class ListaLombadasActivity extends AppCompatActivity {
     private RecyclerView recyclerViewLombadas;
     private LombadaAdapter lombadaAdapter;
     private List<Lombada> listaLombadas;
+
+    private FloatingActionButton fabAdicionarLombada;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,5 +49,12 @@ public class ListaLombadasActivity extends AppCompatActivity {
         recyclerViewLombadas.setAdapter(lombadaAdapter);
 
         buttonVoltarListaLombadas.setOnClickListener(v -> finish());
+        fabAdicionarLombada = findViewById(R.id.fabAdicionarLombada);
+
+        fabAdicionarLombada.setOnClickListener(v -> {
+            Intent intent = new Intent(ListaLombadasActivity.this, CadastroLombadaActivity.class);
+            startActivity(intent);
+        });
+
     }
 }
