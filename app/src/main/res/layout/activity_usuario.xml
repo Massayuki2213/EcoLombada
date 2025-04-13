@@ -8,53 +8,13 @@
     android:background="#FFFFFF"
     tools:context=".activities.UsuarioActivity">
 
-    <!-- Barra superior -->
-    <LinearLayout
-        android:id="@+id/topBarUsuario"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:background="#B2DFDB"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/textHomeUsuario"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Home"
-            android:textColor="#000000"/>
-
-        <TextView
-            android:id="@+id/textUsuario"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Usuário"
-            android:textColor="#000000"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textConfiguracoesUsuario"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Configurações"
-            android:textColor="#000000"/>
-    </LinearLayout>
-
-
+    <!-- Foto do Usuário -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/userPhotoContainer"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@id/topBarUsuario"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -63,18 +23,14 @@
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:src="@drawable/ic_perfil"
-            android:scaleType="centerCrop" />
-        <ImageView
-            android:id="@+id/buttonEditarFoto"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_edit"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="6dp"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    <!-- Nome do usuário -->
     <TextView
         android:id="@+id/textViewNomeUsuario"
         android:layout_width="wrap_content"
@@ -85,9 +41,9 @@
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/userPhotoContainer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- E-mail do usuário -->
+    <!-- E-mail -->
     <TextView
         android:id="@+id/textViewEmailUsuario"
         android:layout_width="wrap_content"
@@ -98,20 +54,21 @@
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@id/textViewNomeUsuario"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
-
+    <!-- Botão Editar Dados -->
     <Button
         android:id="@+id/buttonEditarDados"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
         android:text="Editar dados"
         android:textColor="#000000"
+        android:layout_margin="32dp"
         android:background="@drawable/rounded_button"
         android:layout_marginTop="32dp"
         app:layout_constraintTop_toBottomOf="@id/textViewEmailUsuario"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Data de criação -->
     <TextView
@@ -124,19 +81,61 @@
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/buttonEditarDados"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <!-- Botão Logout -->
     <Button
         android:id="@+id/buttonLogout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
         android:text="Logout"
         android:textColor="#000000"
         android:background="@drawable/rounded_button"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_margin="32dp"
         app:layout_constraintTop_toBottomOf="@id/textViewDataCriacao"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Barra inferior -->
+    <LinearLayout
+        android:id="@+id/bottomBarUsuario"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="#B2DFDB"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textHomeUsuario"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textUsuarioUsuario"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Usuário"
+            android:textColor="#000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textConfiguracoesUsuario"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Configurações"
+            android:textColor="#000000" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

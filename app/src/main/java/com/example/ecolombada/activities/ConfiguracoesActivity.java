@@ -1,8 +1,8 @@
 package com.example.ecolombada.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.ecolombada.R;
 
@@ -18,12 +18,16 @@ public class ConfiguracoesActivity extends AppCompatActivity {
         opcaoAparencia = findViewById(R.id.opcaoAparencia);
         opcaoSobre = findViewById(R.id.opcaoSobre);
 
-        opcaoAparencia.setOnClickListener(v ->
-                Toast.makeText(this, "Tela de Aparência (mock)", Toast.LENGTH_SHORT).show()
-        );
+        opcaoAparencia.setOnClickListener(v -> {
+            // Agora abre a Activity de Aparência
+            Intent intent = new Intent(ConfiguracoesActivity.this, AparenciaActivity.class);
+            startActivity(intent);
+        });
 
-        opcaoSobre.setOnClickListener(v ->
-                Toast.makeText(this, "Tela Sobre (mock)", Toast.LENGTH_SHORT).show()
-        );
+        opcaoSobre.setOnClickListener(v -> {
+            // Agora abre a Activity de Sobre
+            Intent intent = new Intent(ConfiguracoesActivity.this, SobreActivity.class);
+            startActivity(intent);
+        });
     }
 }

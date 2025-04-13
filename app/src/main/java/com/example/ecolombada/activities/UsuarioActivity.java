@@ -21,7 +21,7 @@ public class UsuarioActivity extends AppCompatActivity {
         setContentView(R.layout.activity_usuario);
 
         buttonEditarDados = findViewById(R.id.buttonEditarDados);
-        buttonEditarFoto = findViewById(R.id.buttonEditarFoto);
+        //buttonEditarFoto = findViewById(R.id.buttonEditarFoto);
         buttonLogout = findViewById(R.id.buttonLogout);
         textHomeUsuario = findViewById(R.id.textHomeUsuario);
         textConfiguracoesUsuario = findViewById(R.id.textConfiguracoesUsuario);
@@ -30,9 +30,9 @@ public class UsuarioActivity extends AppCompatActivity {
                 Toast.makeText(this, "Função de editar dados ainda não implementada", Toast.LENGTH_SHORT).show()
         );
 
-        buttonEditarFoto.setOnClickListener(v ->
-                Toast.makeText(this, "Função de alterar foto ainda não implementada", Toast.LENGTH_SHORT).show()
-        );
+       // buttonEditarFoto.setOnClickListener(v ->
+       //         Toast.makeText(this, "Função de alterar foto ainda não implementada", Toast.LENGTH_SHORT).show()
+       // );
 
         buttonLogout.setOnClickListener(v -> {
             // Faz logout e volta para o Login
