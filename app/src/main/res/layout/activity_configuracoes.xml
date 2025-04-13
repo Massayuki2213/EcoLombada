@@ -8,54 +8,13 @@
     android:background="#FFFFFF"
     tools:context=".activities.ConfiguracoesActivity">
 
-    <!-- Barra superior -->
-    <LinearLayout
-        android:id="@+id/topBarConfiguracoes"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:background="#B2DFDB"
-        android:orientation="horizontal"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/textHomeConfiguracoes"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Home"
-            android:textColor="#000000"/>
-
-        <TextView
-            android:id="@+id/textUsuarioConfiguracoes"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Usuário"
-            android:textColor="#000000" />
-
-        <TextView
-            android:id="@+id/textConfiguracoesSelecionado"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="Configurações"
-            android:textColor="#000000"
-            android:textStyle="bold"/>
-    </LinearLayout>
-
     <!-- Opções de Configurações -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@id/topBarConfiguracoes"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="24dp"
@@ -63,20 +22,21 @@
 
         <LinearLayout
             android:id="@+id/opcaoAparencia"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:background="?attr/selectableItemBackground"
             android:gravity="center_vertical"
-            android:padding="16dp"
-            android:background="?attr/selectableItemBackground">
+            android:orientation="horizontal"
+            android:padding="16dp">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Aparência"
-                android:textSize="16sp"
-                android:textColor="#000000"/>
+                android:textColor="#000000"
+                android:textSize="16sp" />
 
             <ImageView
                 android:layout_width="22dp"
@@ -117,6 +77,46 @@
             android:layout_height="1dp"
             android:background="#000000"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomBarConfiguracoes"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="#B2DFDB"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/textHomeConfiguracoes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textUsuarioConfiguracoes"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Usuário"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textConfiguracoesSelecionado"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Configurações"
+            android:textColor="#000000"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
