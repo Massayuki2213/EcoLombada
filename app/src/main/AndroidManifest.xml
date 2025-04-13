@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Ecolombada"
         tools:targetApi="31">
 
-        <!-- LoginActivity agora é a primeira tela -->
+        <!-- Tela inicial: LoginActivity -->
         <activity
             android:name=".activities.LoginActivity"
             android:exported="true">
@@ -23,9 +23,43 @@
             </intent-filter>
         </activity>
 
-        <!-- MainActivity normal, sem intent-filter -->
+        <!-- HomeActivity (destino após login) -->
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.HomeActivity"
+            android:exported="true" />
+
+        <!-- CadastroActivity (para criar conta) -->
+        <activity
+            android:name=".activities.CadastroActivity"
+            android:exported="true" />
+
+        <!-- ListaLombadasActivity (lista de lombadas) -->
+        <activity
+            android:name=".activities.ListaLombadasActivity"
+            android:exported="true" />
+
+        <!-- ListaUsuariosActivity (lista de usuários) -->
+        <activity
+            android:name=".activities.ListaUsuariosActivity"
+            android:exported="true" />
+
+        <!-- DadosLombadaActivity (detalhes da lombada) -->
+        <activity
+            android:name=".activities.DadosLombadaActivity"
+            android:exported="true" />
+
+        <!-- ConfiguracoesActivity (ajustes) -->
+        <activity
+            android:name=".activities.ConfiguracoesActivity"
+            android:exported="true" />
+
+        <!-- SobreActivity e AparenciaActivity (filhas da Configurações) -->
+        <activity
+            android:name=".activities.SobreActivity"
+            android:exported="true" />
+
+        <activity
+            android:name=".activities.AparenciaActivity"
             android:exported="true" />
 
     </application>

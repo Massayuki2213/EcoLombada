@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextUsuario, editTextSenha;
     private Button buttonLogin;
-    private TextView textEsqueciSenha;
+    private TextView textEsqueciSenha, textCadastrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextSenha = findViewById(R.id.editTextSenha);
         buttonLogin = findViewById(R.id.buttonLogin);
         textEsqueciSenha = findViewById(R.id.textEsqueciSenha);
+        textCadastrar = findViewById(R.id.textCadastrar);
 
         buttonLogin.setOnClickListener(v -> {
             String usuario = editTextUsuario.getText().toString();
@@ -32,16 +33,21 @@ public class LoginActivity extends AppCompatActivity {
 
             if (usuario.isEmpty() || senha.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
-            } else {
-                // Apenas simula login
-                Toast.makeText(LoginActivity.this, "Login efetuado (mock)", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class)); // Vai para Home depois
+            } else if (usuario.equals("admin@gmail.com") && senha.equals("1234")) {
+                Toast.makeText(LoginActivity.this, "Login efetuado!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 finish();
+            } else {
+                Toast.makeText(LoginActivity.this, "Usuário ou senha inválidos", Toast.LENGTH_SHORT).show();
             }
         });
 
-        textEsqueciSenha.setOnClickListener(v ->
-                Toast.makeText(LoginActivity.this, "Função de recuperação de senha ainda não implementada", Toast.LENGTH_SHORT).show()
-        );
+        textCadastrar.setOnClickListener(v -> {
+            startActivity(new Intent(LoginActivity.this, CadastroActivity.class));
+        });
+
+        textEsqueciSenha.setOnClickListener(v -> {
+            Toast.makeText(LoginActivity.this, "Função de recuperação de senha ainda não implementada", Toast.LENGTH_SHORT).show();
+        });
     }
 }

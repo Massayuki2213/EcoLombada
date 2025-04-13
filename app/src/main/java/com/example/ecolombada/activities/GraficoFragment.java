@@ -13,7 +13,7 @@ public class GraficoFragment extends Fragment {
     private BarGraphView barGraphView;
 
     public GraficoFragment() {
-        // Construtor vazio
+
     }
 
     @Override
@@ -23,7 +23,6 @@ public class GraficoFragment extends Fragment {
 
         barGraphView = view.findViewById(R.id.barGraphView);
 
-        // Mockando dados
         int[] veiculos = {5, 10, 15};
         int[] energia = {6, 12, 18};
 

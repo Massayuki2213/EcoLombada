@@ -27,8 +27,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Home"
-            android:textColor="#000000"
-            android:textStyle="bold"/>
+            android:textColor="#000000"/>
 
         <TextView
             android:id="@+id/textUsuarioConfiguracoes"
@@ -37,7 +36,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="Usuário"
-            android:textColor="#000000"/>
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/textConfiguracoesSelecionado"
@@ -80,9 +79,9 @@
                 android:textColor="#000000"/>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow_right"/>
+                android:layout_width="22dp"
+                android:layout_height="29dp"
+                android:src="@drawable/ic_arrow_right" />
         </LinearLayout>
 
         <View
@@ -108,9 +107,9 @@
                 android:textColor="#000000"/>
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow_right"/>
+                android:layout_width="22dp"
+                android:layout_height="29dp"
+                android:src="@drawable/ic_arrow_right" />
         </LinearLayout>
 
         <View
