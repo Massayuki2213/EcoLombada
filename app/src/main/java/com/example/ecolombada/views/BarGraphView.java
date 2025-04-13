@@ -72,4 +72,7 @@ public class BarGraphView extends View {
         this.legendas = novasLegendas;
         invalidate(); // Redesenha a view
     }
+
+    public void setDados(int[] veiculos, int[] energia) {
+    }
 }

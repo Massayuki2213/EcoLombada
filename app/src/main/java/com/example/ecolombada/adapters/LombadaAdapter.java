@@ -42,6 +42,7 @@ public class LombadaAdapter extends RecyclerView.Adapter<LombadaAdapter.LombadaV
         holder.itemView.setOnClickListener(v -> {
             Intent intent = new Intent(context, DadosLombadaActivity.class);
             intent.putExtra("nome_lombada", lombada.getNome());
+            intent.putExtra("endereco_lombada", lombada.getEndereco()); // Adicionando o endereço
             context.startActivity(intent);
         });
     }
