@@ -39,14 +39,17 @@ public class CadastroActivity extends AppCompatActivity {
                 Toast.makeText(CadastroActivity.this, "As senhas não conferem", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(CadastroActivity.this, "Cadastro efetuado (mock)", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(CadastroActivity.this, HomeActivity.class));
-                finish();
+                // Enviar nome de volta
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("novoUsuarioNome", nome);
+                setResult(RESULT_OK, resultIntent);
+                finish(); // Voltar para a lista
             }
         });
 
         buttonVoltarCadastro.setOnClickListener(v -> {
             Intent intent = new Intent(CadastroActivity.this, LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK); // Limpa a pilha para não voltar mais
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
         });

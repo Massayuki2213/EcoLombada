@@ -34,8 +34,8 @@ public class CadastroLombadaActivity extends AppCompatActivity {
             } else {
                 Intent resultIntent = new Intent();
                 resultIntent.putExtra("nomeLombada", nomeLombada);
+                resultIntent.putExtra("cidadeLombada", cidadeLombada);
                 resultIntent.putExtra("enderecoLombada", enderecoLombada);
-
                 setResult(RESULT_OK, resultIntent);
                 finish();
             }
