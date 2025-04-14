@@ -28,8 +28,8 @@ public class ListaLombadasActivity extends AppCompatActivity {
     private EditText editTextBuscarLombada;
     private RecyclerView recyclerViewLombadas;
     private LombadaAdapter lombadaAdapter;
-    private List<Lombada> listaLombadas;          // Lista completa
-    private List<Lombada> listaLombadasFiltrada;   // Lista exibida no RecyclerView
+    private List<Lombada> listaLombadas;
+    private List<Lombada> listaLombadasFiltrada;
     private FloatingActionButton fabAdicionarLombada;
 
     @Override
@@ -43,9 +43,27 @@ public class ListaLombadasActivity extends AppCompatActivity {
         fabAdicionarLombada = findViewById(R.id.fabAdicionarLombada);
 
         listaLombadas = new ArrayList<>();
-        listaLombadas.add(new Lombada("ABC_SP", "Sorocaba", "Rua Francisco Henrique da Rosa"));
-        listaLombadas.add(new Lombada("DEF_SP", "Campinas", "Avenida Brasil"));
-        listaLombadas.add(new Lombada("GHI_SP", "São Paulo", "Rua Augusta"));
+        listaLombadas.add(new Lombada(
+                "ABC_SP",
+                "Sorocaba",
+                "Rua Francisco Henrique da Rosa",
+                new int[]{5, 10, 15},
+                new int[]{6, 12, 18}
+        ));
+        listaLombadas.add(new Lombada(
+                "DEF_SP",
+                "Campinas",
+                "Avenida Brasil",
+                new int[]{1, 2, 1},
+                new int[]{1, 2, 1}
+        ));
+        listaLombadas.add(new Lombada(
+                "GHI_SP",
+                "São Paulo",
+                "Rua Augusta",
+                new int[]{7, 14, 21},
+                new int[]{8, 16, 24}
+        ));
 
         listaLombadasFiltrada = new ArrayList<>(listaLombadas);
 
@@ -60,7 +78,6 @@ public class ListaLombadasActivity extends AppCompatActivity {
             startActivityForResult(intent, REQUEST_CADASTRO);
         });
 
-        // Filtragem enquanto digita
         editTextBuscarLombada.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -98,7 +115,14 @@ public class ListaLombadasActivity extends AppCompatActivity {
             String cidadeLombada = data.getStringExtra("cidadeLombada");
             String enderecoLombada = data.getStringExtra("enderecoLombada");
 
-            Lombada novaLombada = new Lombada(nomeLombada, cidadeLombada, enderecoLombada);
+            Lombada novaLombada = new Lombada(
+                    nomeLombada,
+                    cidadeLombada,
+                    enderecoLombada,
+                    new int[]{0, 0, 0},
+                    new int[]{0, 0, 0}
+            );
+
             listaLombadas.add(novaLombada);
             listaLombadasFiltrada.add(novaLombada);
             lombadaAdapter.notifyItemInserted(listaLombadasFiltrada.size() - 1);

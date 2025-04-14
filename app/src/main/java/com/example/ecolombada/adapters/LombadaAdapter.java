@@ -1,17 +1,21 @@
 package com.example.ecolombada.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.ecolombada.R;
+import com.example.ecolombada.activities.DadosLombadaActivity;
 import com.example.ecolombada.models.Lombada;
+
 import java.util.List;
 
-public class LombadaAdapter extends RecyclerView.Adapter<LombadaAdapter.ViewHolder> {
+public class LombadaAdapter extends RecyclerView.Adapter<LombadaAdapter.LombadaViewHolder> {
 
     private Context context;
     private List<Lombada> lombadas;
@@ -21,18 +25,21 @@ public class LombadaAdapter extends RecyclerView.Adapter<LombadaAdapter.ViewHold
         this.lombadas = lombadas;
     }
 
-    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public LombadaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_lombada, parent, false);
-        return new ViewHolder(view);
+        return new LombadaViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(LombadaViewHolder holder, int position) {
         Lombada lombada = lombadas.get(position);
-        holder.textNomeLombada.setText(lombada.getNome());
-        holder.textEnderecoLombada.setText(lombada.getCidadeEndereco());
+        holder.textViewNome.setText(lombada.getNome());
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DadosLombadaActivity.class);
+            intent.putExtra("lombada", lombada);
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -40,13 +47,13 @@ public class LombadaAdapter extends RecyclerView.Adapter<LombadaAdapter.ViewHold
         return lombadas.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textNomeLombada, textEnderecoLombada;
+    public static class LombadaViewHolder extends RecyclerView.ViewHolder {
+        TextView textViewNome;
 
-        public ViewHolder(@NonNull View itemView) {
+        public LombadaViewHolder(View itemView) {
             super(itemView);
-            textNomeLombada = itemView.findViewById(R.id.textNomeLombada);
-            textEnderecoLombada = itemView.findViewById(R.id.textEnderecoLombada);
+            textViewNome = itemView.findViewById(R.id.textNomeLombada);
         }
     }
+
 }
