@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (usuario.isEmpty() || senha.isEmpty()) {
                 Toast.makeText(LoginActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
-            } else if (usuario.equals("admin@gmail.com") && senha.equals("1234")) {
+            } else if (usuario.equals("1") && senha.equals("1")) {
                 Toast.makeText(LoginActivity.this, "Login efetuado!", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 finish();

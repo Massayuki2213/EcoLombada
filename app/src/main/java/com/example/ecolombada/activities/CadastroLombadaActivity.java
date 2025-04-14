@@ -10,7 +10,7 @@ import com.example.ecolombada.R;
 
 public class CadastroLombadaActivity extends AppCompatActivity {
 
-    private EditText editTextNomeLombada, editTextEnderecoLombada;
+    private EditText editTextNomeLombada, editTextCidadeLombada, editTextEnderecoLombada;
     private Button buttonCadastrarLombada, buttonVoltarCadastroLombada;
 
     @Override
@@ -19,26 +19,31 @@ public class CadastroLombadaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_lombada);
 
         editTextNomeLombada = findViewById(R.id.editTextNomeLombada);
+        editTextCidadeLombada = findViewById(R.id.editTextCidadeLombada);
         editTextEnderecoLombada = findViewById(R.id.editTextEnderecoLombada);
         buttonCadastrarLombada = findViewById(R.id.buttonCadastrarLombada);
         buttonVoltarCadastroLombada = findViewById(R.id.buttonVoltarCadastroLombada);
 
         buttonCadastrarLombada.setOnClickListener(v -> {
-            String nomeLombada = editTextNomeLombada.getText().toString();
-            String enderecoLombada = editTextEnderecoLombada.getText().toString();
+            String nomeLombada = editTextNomeLombada.getText().toString().trim();
+            String cidadeLombada = editTextCidadeLombada.getText().toString().trim();
+            String enderecoLombada = editTextEnderecoLombada.getText().toString().trim();
 
-            if (nomeLombada.isEmpty() || enderecoLombada.isEmpty()) {
-                Toast.makeText(CadastroLombadaActivity.this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
+            if (nomeLombada.isEmpty() || cidadeLombada.isEmpty() || enderecoLombada.isEmpty()) {
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show();
             } else {
-                // Aqui no futuro você poderia salvar no banco de dados
-                Toast.makeText(CadastroLombadaActivity.this, "Lombada cadastrada com sucesso!", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(CadastroLombadaActivity.this, ListaLombadasActivity.class));
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("nomeLombada", nomeLombada);
+                resultIntent.putExtra("enderecoLombada", enderecoLombada);
+
+                setResult(RESULT_OK, resultIntent);
                 finish();
             }
         });
 
         buttonVoltarCadastroLombada.setOnClickListener(v -> {
-            finish(); // Apenas volta para a tela anterior
+            setResult(RESULT_CANCELED);
+            finish();
         });
     }
 }

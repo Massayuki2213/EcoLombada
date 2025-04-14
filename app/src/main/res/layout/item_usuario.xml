@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="8dp"
+    android:layout_marginHorizontal="16dp"
     android:layout_marginBottom="5dp"
     android:layout_marginTop="5dp"
     android:background="@drawable/rounded_edittext">
@@ -35,7 +36,6 @@
         android:id="@+id/buttonEditarUsuario"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="✏️"
         android:background="@android:color/transparent"
         app:layout_constraintEnd_toStartOf="@id/buttonAtivarUsuario"
         app:layout_constraintTop_toTopOf="parent"

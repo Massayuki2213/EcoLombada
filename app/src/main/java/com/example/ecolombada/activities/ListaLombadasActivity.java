@@ -4,20 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.ecolombada.R;
 import com.example.ecolombada.adapters.LombadaAdapter;
 import com.example.ecolombada.models.Lombada;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListaLombadasActivity extends AppCompatActivity {
+
+    private static final int REQUEST_CADASTRO = 1;
 
     private Button buttonVoltarListaLombadas;
     private EditText editTextBuscarLombada;
@@ -37,13 +37,12 @@ public class ListaLombadasActivity extends AppCompatActivity {
         fabAdicionarLombada = findViewById(R.id.fabAdicionarLombada);
 
         listaLombadas = new ArrayList<>();
-        listaLombadas.add(new Lombada("ABC_SP", "Rua Francisco Henrique da Rosa, 333 - Sorocaba, SP - Brasil"));
+        listaLombadas.add(new Lombada("ABC_SP", "Rua Francisco Henrique da Rosa - Sorocaba, SP"));
         listaLombadas.add(new Lombada("Lombada_UF", "Exemplo - Endereço 1"));
         listaLombadas.add(new Lombada("Lombada_UF", "Exemplo - Endereço 2"));
         listaLombadas.add(new Lombada("Lombada_UF", "Exemplo - Endereço 3"));
 
         lombadaAdapter = new LombadaAdapter(this, listaLombadas);
-
         recyclerViewLombadas.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewLombadas.setAdapter(lombadaAdapter);
 
@@ -51,7 +50,21 @@ public class ListaLombadasActivity extends AppCompatActivity {
 
         fabAdicionarLombada.setOnClickListener(v -> {
             Intent intent = new Intent(ListaLombadasActivity.this, CadastroLombadaActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_CADASTRO);
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CADASTRO && resultCode == RESULT_OK && data != null) {
+            String nomeLombada = data.getStringExtra("nomeLombada");
+            String enderecoLombada = data.getStringExtra("enderecoLombada");
+
+            Lombada novaLombada = new Lombada(nomeLombada, enderecoLombada);
+            listaLombadas.add(novaLombada);
+            lombadaAdapter.notifyItemInserted(listaLombadas.size() - 1);
+        }
     }
 }

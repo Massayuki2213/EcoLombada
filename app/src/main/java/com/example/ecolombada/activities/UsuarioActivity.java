@@ -42,9 +42,9 @@ public class UsuarioActivity extends AppCompatActivity {
             finish();
         });
 
-        textHomeUsuario.setOnClickListener(v -> finish()); // Voltar para Home
-        textConfiguracoesUsuario.setOnClickListener(v ->
-                Toast.makeText(this, "Navegar para Configurações", Toast.LENGTH_SHORT).show()
-        );
+        textHomeUsuario.setOnClickListener(v -> finish());
+        textConfiguracoesUsuario.setOnClickListener(v -> {
+            startActivity(new Intent(UsuarioActivity.this, ConfiguracoesActivity.class));
+        });
     }
 }

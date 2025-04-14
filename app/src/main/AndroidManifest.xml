@@ -43,6 +43,11 @@
             android:name=".activities.ListaUsuariosActivity"
             android:exported="true" />
 
+        <!-- UsuarioActivity (detalhes do usuário) -->
+        <activity
+            android:name=".activities.UsuarioActivity"
+            android:exported="true"/>
+
         <!-- DadosLombadaActivity (detalhes da lombada) -->
         <activity
             android:name=".activities.DadosLombadaActivity"
@@ -53,18 +58,20 @@
             android:name=".activities.ConfiguracoesActivity"
             android:exported="true" />
 
-        <!-- SobreActivity e AparenciaActivity (filhas da Configurações) -->
+        <!-- SobreActivity -->
         <activity
             android:name=".activities.SobreActivity"
             android:exported="true" />
 
+        <!-- AparenciaActivity -->
         <activity
             android:name=".activities.AparenciaActivity"
             android:exported="true" />
 
+        <!-- CadastroLombadaActivity -->
         <activity
-            android:name=".activities.CadastroLombadaActivity" />
-
+            android:name=".activities.CadastroLombadaActivity"
+            android:exported="true" />
 
     </application>
 
