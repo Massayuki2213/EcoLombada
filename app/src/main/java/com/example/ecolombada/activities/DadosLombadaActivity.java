@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.ecolombada.R;
+import com.example.ecolombada.fragments.GraficoFragment;
 import com.example.ecolombada.models.Lombada;
 
 public class DadosLombadaActivity extends AppCompatActivity {
